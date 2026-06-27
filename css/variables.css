@@ -8,7 +8,7 @@
   /* ---- COLOR (DS §3) ------------------------------------------------------ */
   --color-primary:        #2E7D32;
   --color-primary-hover:  #256A2A;
-  --color-secondary:      #C8A100;   /* OCOP / badge nhấn */
+  --color-secondary:      #C8A100;   /* chứng nhận / badge nhấn */
   --color-accent:         #F59E0B;   /* chỉ HOT / Sale / Countdown */
 
   --color-bg:             #FFFFFF;

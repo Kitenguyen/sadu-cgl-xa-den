@@ -6,16 +6,14 @@
 
 window.SADU_CONFIG = {
 
-  /* --- PRICING (chốt theo Quyết định #6) ------------------------------------
-   * Giá lẻ:   1 gói = 109.000đ
-   * Combo:    4 gói = 396.000đ
-   * Từ 5 gói: comboCount = floor(qty/4); remain = qty % 4
-   *           total = comboCount*COMBO_PRICE + remain*UNIT_PRICE
+  /* --- PRICING ---------------------------------------------------------------
+   * Giá lẻ: 1 gói = 109.000đ
+   * Từ 2 gói trở lên: 99.000đ/gói
    * Khuyến mại = (qty * UNIT_PRICE) - total
    * -------------------------------------------------------------------------*/
   UNIT_PRICE: 109000,        // đơn giá 1 gói 250g
-  COMBO_QTY: 4,              // số gói tạo thành 1 combo 1kg
-  COMBO_PRICE: 396000,       // giá 1 combo 1kg (4 gói)
+  DEAL_MIN_QTY: 2,           // từ 2 gói áp dụng giá ưu đãi
+  DEAL_UNIT_PRICE: 99000,    // giá ưu đãi mỗi gói khi mua từ 2 gói
 
   /* --- SHIPPING (chốt theo Quyết định #7) ----------------------------------- */
   FREE_SHIP_THRESHOLD: 250000, // tổng tiền >= 250.000 => freeship
@@ -24,19 +22,19 @@ window.SADU_CONFIG = {
   /* --- QUANTITY SELECTOR ----------------------------------------------------- */
   QTY_MIN: 1,
   QTY_MAX: 99,               // TODO-CONFIG: xác nhận trần số lượng nếu cần
-  QTY_DEFAULT: 4,            // mặc định đẩy về Combo (mục tiêu chuyển đổi)
+  QTY_DEFAULT: 2,            // mặc định đẩy về mức ưu đãi từ 2 gói
 
   /* --- CONTACT --------------------------------------------------------------- */
   HOTLINE: '1900 8952',                 // TODO-CONFIG: số hotline thật
   HOTLINE_HREF: 'tel:19008952',         // TODO-CONFIG
   COMPANY_NAME: 'SADU',                 // TODO-CONFIG: tên công ty đầy đủ
   COMPANY_ADDRESS: 'Thong tin dia chi showroom dang duoc cap nhat',
-  WEBSITE: 'https://sadu.vn',
+  WEBSITE: 'https://www.sadu.com.vn',
   FANPAGE: 'https://facebook.com/sadu.vn',
-  EMAIL: 'hello@sadu.vn',
+  EMAIL: 'nongnghiepcncthanglong@gmail.com',
 
   /* --- INTEGRATIONS (để trống, không hard-code khóa bí mật) ----------------- */
-  GAS_WEBAPP_URL: 'https://script.google.com/macros/s/AKfycbz0qnIJ7NaiDIW-zrBTvUfuxpM52vjDrxiwlnB7l50k98vGFxDKIUxkZrrBcJz8kQQS/exec',        // TODO-INTEGRATION: URL Google Apps Script Web App
+  GAS_WEBAPP_URL: 'https://script.google.com/macros/s/AKfycbxZJxc-SN6irXS9unXWCd2azV_a4HedOCoB3HDtBXn3d8pPIAGmzYNyneKfWj0H6LGc/exec',        // TODO-INTEGRATION: URL Google Apps Script Web App
   // Telegram: token KHÔNG đặt phía client (Tech Spec §25). Gửi qua GAS server-side.
   TELEGRAM_ENABLED: false,   // TODO-INTEGRATION: bật khi GAS đã cấu hình Telegram
 

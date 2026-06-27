@@ -1,8 +1,8 @@
 /* =============================================================================
  * form.js - Smart Order Form (Component 21 / CRO §6 §7 §8 §9 §15 §16 §24)
  * Logic:
- *   comboCount = floor(qty / 4); remain = qty % 4
- *   total = comboCount*396000 + remain*109000
+ *   1 gói = 109000
+ *   từ 2 gói trở lên = 99000/gói
  *   discount = qty*109000 - total
  *   ship = total >= 250000 ? 0 : 30000
  * =============================================================================*/
@@ -14,12 +14,10 @@
 
   function calcOrder(qty) {
     var unit = CFG.UNIT_PRICE || 109000;
-    var comboQty = CFG.COMBO_QTY || 4;
-    var comboPrice = CFG.COMBO_PRICE || 396000;
-    var combos = Math.floor(qty / comboQty);
-    var remain = qty % comboQty;
+    var dealMinQty = CFG.DEAL_MIN_QTY || 2;
+    var dealUnit = CFG.DEAL_UNIT_PRICE || 99000;
     var listTotal = qty * unit;
-    var comboTotal = combos * comboPrice + remain * unit;
+    var comboTotal = qty >= dealMinQty ? qty * dealUnit : listTotal;
     var discount = listTotal - comboTotal;
     var shipping = comboTotal >= (CFG.FREE_SHIP_THRESHOLD || 250000)
       ? 0
@@ -151,10 +149,10 @@
       }
 
       if (elComboProgress) {
-        if (r.qty < 4) {
+        if (r.qty < (CFG.DEAL_MIN_QTY || 2)) {
           elComboProgress.hidden = false;
           elComboProgress.style.display = '';
-          fadeUpdate(elComboProgress, 'Còn ' + (4 - r.qty) + ' gói nữa để nhận giá Combo.');
+          fadeUpdate(elComboProgress, 'Còn ' + ((CFG.DEAL_MIN_QTY || 2) - r.qty) + ' gói nữa để nhận giá 99.000đ/gói.');
         } else {
           elComboProgress.hidden = true;
           elComboProgress.style.display = 'none';
@@ -162,7 +160,7 @@
       }
 
       if (elComboEncourage) {
-        if (r.qty === 3) {
+        if (r.qty === ((CFG.DEAL_MIN_QTY || 2) - 1)) {
           elComboEncourage.hidden = false;
           elComboEncourage.style.display = 'flex';
         } else {
@@ -186,7 +184,7 @@
       renderSummary(calcOrder(n));
     }
 
-    setQty(CFG.QTY_DEFAULT || 4);
+    setQty(CFG.QTY_DEFAULT || 2);
 
     if (qtyDec) qtyDec.addEventListener('click', function () {
       setQty(Math.max(CFG.QTY_MIN || 1, getQty() - 1));

@@ -1,4 +1,4 @@
-# Landing Page — Cà Gai Leo Nguyên Chất SADU
+# Landing Page — Cà Gai Leo Xạ Đen Nguyên Chất SADU
 
 Landing Page bán hàng chuyển đổi cao, xây bằng **HTML5 + CSS3 + JavaScript ES6 thuần**
 (không framework — theo Technical Specification). Tuân thủ PRD, UI Spec, Design System,
@@ -43,9 +43,9 @@ Mở **`js/config.js`** — mọi giá trị dễ thay đổi nằm ở đây, *
 
 | Nhóm | Khóa | Ghi chú |
 |------|------|---------|
-| Giá | `UNIT_PRICE`, `COMBO_QTY`, `COMBO_PRICE` | Logic giá đã chốt (xem §4) |
+| Giá | `UNIT_PRICE`, `DEAL_MIN_QTY`, `DEAL_UNIT_PRICE` | Logic giá đã chốt (xem §4) |
 | Ship | `FREE_SHIP_THRESHOLD`, `SHIPPING_FEE` | 250.000 → free; dưới → 30.000 |
-| Số lượng | `QTY_MIN`, `QTY_MAX`, `QTY_DEFAULT` | Mặc định 4 (đẩy Combo) |
+| Số lượng | `QTY_MIN`, `QTY_MAX`, `QTY_DEFAULT` | Mặc định 2 (đẩy mức ưu đãi) |
 | Liên hệ | `HOTLINE`, `COMPANY_*`, `WEBSITE`, `FANPAGE`, `EMAIL` | **TODO-CONFIG** |
 | Tích hợp | `GAS_WEBAPP_URL`, `FB_PIXEL_ID`, `TIKTOK_PIXEL_ID`, `GA4_ID`, `GTM_ID` | **TODO-INTEGRATION** |
 
@@ -62,7 +62,7 @@ Hotline tự đổ vào DOM qua thuộc tính `data-bind="hotline"` / `data-bind
   ```html
   <picture>
     <source srcset="images/hero.webp" type="image/webp">
-    <img src="images/hero.jpg" width="800" height="1000" alt="Cà Gai Leo SADU" loading="lazy">
+    <img src="images/hero.jpg" width="800" height="1000" alt="Cà Gai Leo Xạ Đen SADU" loading="lazy">
   </picture>
   ```
   Hero **không** lazy-load (Tech Spec §22). Ảnh ngoài Hero dùng `loading="lazy"`.
@@ -72,14 +72,14 @@ Hotline tự đổ vào DOM qua thuộc tính `data-bind="hotline"` / `data-bind
 ## 4. Logic giá (đã chốt — Quyết định #6)
 
 ```
-comboCount = floor(quantity / 4)
-remain     = quantity % 4
-total      = comboCount × 396.000 + remain × 109.000
+unit       = 109.000
+dealUnit   = quantity >= 2 ? 99.000 : 109.000
+total      = quantity × dealUnit
 discount   = quantity × 109.000 − total
 ship       = total ≥ 250.000 ? 0 : 30.000
 ```
 
-Đã kiểm chứng: 4→396k · 5→505k · 6→614k · 7→723k · 8→792k.
+Đã kiểm chứng: 1→109k + ship · 2→198k + ship · 3→297k freeship · 4→396k freeship.
 
 ---
 

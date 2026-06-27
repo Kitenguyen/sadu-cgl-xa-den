@@ -897,7 +897,7 @@
 
 /* =====================================================================
  * 15 · OFFER (UI §19 / CRO §3 §4 §5) — 2 card: lẻ + combo
- * Combo: scale 5%, border nổi, badge + ribbon (CRO §4)
+ * Ưu đãi: scale 5%, border nổi, badge + ribbon (CRO §4)
  * Price hierarchy: niêm yết → hiện tại → tiết kiệm → freeship → CTA (CRO §5)
  * =================================================================== */
 .offer {
@@ -1344,7 +1344,7 @@
 .floating-cta .btn { flex: 1; min-height: 52px; font-size: var(--fs-body-sm); padding-inline: var(--space-2); }
 
 /* =====================================================================
- * EXIT INTENT POPUP (UI §25 / CRO §13) — Combo reminder only, no extra discount
+ * EXIT INTENT POPUP (UI §25 / CRO §13) — offer reminder only, no extra discount
  * =================================================================== */
 .exit-popup {
   position: fixed; inset: 0; z-index: var(--z-popup);
