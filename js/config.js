@@ -22,7 +22,7 @@ window.SADU_CONFIG = {
   /* --- QUANTITY SELECTOR ----------------------------------------------------- */
   QTY_MIN: 1,
   QTY_MAX: 99,               // TODO-CONFIG: xác nhận trần số lượng nếu cần
-  QTY_DEFAULT: 2,            // mặc định đẩy về mức ưu đãi từ 2 gói
+  QTY_DEFAULT: 4,            // mặc định đẩy về combo 4 gói có freeship
 
   /* --- CONTACT --------------------------------------------------------------- */
   HOTLINE: '1900 8952',                 // TODO-CONFIG: số hotline thật

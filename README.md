@@ -45,7 +45,7 @@ Mở **`js/config.js`** — mọi giá trị dễ thay đổi nằm ở đây, *
 |------|------|---------|
 | Giá | `UNIT_PRICE`, `DEAL_MIN_QTY`, `DEAL_UNIT_PRICE` | Logic giá đã chốt (xem §4) |
 | Ship | `FREE_SHIP_THRESHOLD`, `SHIPPING_FEE` | 250.000 → free; dưới → 30.000 |
-| Số lượng | `QTY_MIN`, `QTY_MAX`, `QTY_DEFAULT` | Mặc định 2 (đẩy mức ưu đãi) |
+| Số lượng | `QTY_MIN`, `QTY_MAX`, `QTY_DEFAULT` | Mặc định 4 (đẩy combo có freeship) |
 | Liên hệ | `HOTLINE`, `COMPANY_*`, `WEBSITE`, `FANPAGE`, `EMAIL` | **TODO-CONFIG** |
 | Tích hợp | `GAS_WEBAPP_URL`, `FB_PIXEL_ID`, `TIKTOK_PIXEL_ID`, `GA4_ID`, `GTM_ID` | **TODO-INTEGRATION** |
 

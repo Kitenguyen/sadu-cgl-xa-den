@@ -120,7 +120,7 @@
   --fs-h6: 18px;
   --fs-body-lg: 18px;
   --fs-body:    16px;   /* không nhỏ hơn 16px trên mobile */
-  --section-padding: 64px;
+  --section-padding: 48px;
 }
 
 /* TABLET (>=768) */
@@ -133,7 +133,7 @@
     --fs-h5: 22px;
     --fs-body-lg: 20px;
     --fs-body: 18px;
-    --section-padding: 88px;
+    --section-padding: 64px;
   }
 }
 
@@ -144,7 +144,7 @@
     --fs-h2: 44px;
     --fs-h3: 34px;
     --fs-h4: 28px;
-    --section-padding: 104px;
+    --section-padding: 80px;
   }
 }
 
@@ -155,6 +155,6 @@
     --fs-h2: 48px;
     --fs-h3: 36px;
     --fs-h4: 28px;
-    --section-padding: 120px;
+    --section-padding: 88px;
   }
 }
